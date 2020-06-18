@@ -1,0 +1,41 @@
+[{
+        "id": 1,
+        "image": "/assets/images/aang.jpg",
+        "title": "Aang"
+    },
+    {
+        "id": 2,
+        "image": "/assets/images/aang2.jpg",
+        "title": "Avatar"
+    },
+    {
+        "id": 3,
+        "image": "/assets/images/appa.jpg",
+        "title": "Appa"
+    },
+    {
+        "id": 4,
+        "image": "/assets/images/irroh.jpg",
+        "title": "Irroh"
+    },
+    {
+        "id": 5,
+        "image": "/assets/images/katara.jpg",
+        "title": "Katara"
+    },
+    {
+        "id": 6,
+        "image": "/assets/images/katara2.jpg",
+        "title": "Katara and Sokka"
+    },
+    {
+        "id": 7,
+        "image": "/assets/images/toph.jpg",
+        "title": "Toph"
+    },
+    {
+        "id": 8,
+        "image": "/assets/images/zuko.jpg",
+        "title": "Zuko"
+    }
+]
