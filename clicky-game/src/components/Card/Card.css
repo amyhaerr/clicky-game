@@ -18,7 +18,7 @@
 .card .img-container:hover > img {
     width: 100%;
     height: 100%;
-    filter: invert(100%);
+    /* filter: invert(100%); */
     background-repeat: no-repeat;
 }
 
@@ -49,6 +49,8 @@
     overflow: hidden;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
+}
+
+#root {
+    background-image: url("/clicky-game/public/assets/Images/avatar.jpg");
 }
