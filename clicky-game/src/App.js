@@ -39,7 +39,7 @@ class App extends Component {
       this.handleIncrement();
       this.makeShuffle();
       
-    }else if (this.state.score === 12) {
+    }else if (this.state.score === 8) {
       this.setState({
         showSuccess: 1,
         score: 0,
