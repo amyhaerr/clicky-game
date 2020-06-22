@@ -1,3 +1,10 @@
-/* .wrapper {
-    background-image: url("../../../public/assets/Images/avatar.jpg");
-} */
+.wrapper {
+    background-image: url ("./images/avatar.jpg");
+    height: 160vh;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-content: flex-start;
+    overflow: auto;
+    padding-bottom: 205px;
+}

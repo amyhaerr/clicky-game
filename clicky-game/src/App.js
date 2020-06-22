@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import avatar from "./cards.json";
-import Title from "./components/Title";
 import Scoreboard from "./components/Scoreboard";
 import Card from "./components/Card";
 import Wrapper from "./components/Wrapper";
+import Title from "./components/Title";
+import Container from "./Container";
+import Row from "./Row";
+import Column from "./Column";
+import "./App.css";
 
 // shuffle upon click
-function shuffle(array) {
+function shuffleAvatars (array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
@@ -80,7 +84,7 @@ class App extends Component {
 
         <Container>
           <Row>
-            {this.state.avatar.map((avatars => (
+            {this.state.avatar.map (avatars => (
               <Column size="md-3 sm-6">
                 <Card
                   key={avatars.id}
@@ -92,7 +96,7 @@ class App extends Component {
                   image={avatars.image}
                 />
               </Column>
-            )))}
+            ))}
           </Row>
         </Container>
       </Wrapper>
