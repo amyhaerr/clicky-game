@@ -20,7 +20,8 @@ This is a memorization and click game. The object of the game is to click on onl
 - Bootstrap
 - CSS
 
-
+## Screenshot:
+<img src="clicky-game/public/assets/screenshots/clickygame.png">
 
 
 
