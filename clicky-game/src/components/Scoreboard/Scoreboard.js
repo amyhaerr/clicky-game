@@ -1,8 +1,7 @@
 import React from "react";
 import "./Scoreboard.css";
 
-function Scoreboard(props) {
-  return (
+const Scoreboard = props => (
     // <header className="scoreB">
     //     <div className="row">
     //         <div className="col-md-6 col-left"><h4>{props.title}</h4></div>
@@ -29,6 +28,6 @@ function Scoreboard(props) {
       </ul>
     </nav>
   );
-}
+
 
 export default Scoreboard;

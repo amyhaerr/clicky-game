@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import avatar from "./cards.json";
+import Title from "./components/Title";
 import Scoreboard from "./components/Scoreboard";
 import Card from "./components/Card";
 import Wrapper from "./components/Wrapper";
@@ -16,96 +17,84 @@ function shuffle(array) {
 class App extends Component {
   state = {
     avatar,
-    score: 0,
+    currentScore: 0,
     topScore: 0,
-    showAlert: 0,
-    showSuccess: 0,
+    rightWrong: "Click an image to start",
     clickedAvatar: [],
   };
 
-  clickedImage = (id) => {
+  handleClick = (id) => {
     // assign empty state array to let it be updated
-    let clickedAvatar = this.state.clickedAvatar;
-    let score = this.state.score;
-    let topScore = this.state.topScore;
-    this.setState({
-      showAlert: 0,
-    });
-
-    // if image is clicked, id indexed avatar
-    if (clickedAvatar.indexOf(id) === -1) {
-      // push id into that id into array to be stored
-      clickedAvatar.push(id);
-      console.log(clickedAvatar);
+    if (this.state.clickedAvatar.indexOf(id) === -1) {
       this.handleIncrement();
-      this.makeShuffle();
-    } else if (this.state.score === 8) {
-      this.setState({
-        showSuccess: 1,
-        score: 0,
-        clickedAvatar: [],
-      });
+      this.setState({ clickedAvatar: this.state.clickedAvatar.concat(id) });
     } else {
-      // alert player loss
-      this.setState({
-        score: 0,
-        clickedAvatar: [],
-      });
-      console.log("duplicate");
-      this.setState({
-        showAlert: 1,
-      });
-    }
-
-    if (score > topScore) {
-      this.setState({
-        topScore: score,
-      });
+      this.handleReset();
     }
   };
 
   handleIncrement = () => {
-    this.setState({ score: this.state.score + 1 });
+    const newScore = this.state.currentScore + 1;
+    this.setState({
+      currentScore: newScore,
+      rightWrong: "Yip! Yip! You earned a point!",
+    });
+    if (newScore >= this.state.topScore) {
+      this.setState({ topScore: newScore });
+    } else if (newScore === 12) {
+      this.setState({ rightWrong: "You've won!" });
+    }
+    this.handleShuffle();
+  };
+
+  handleReset = () => {
+    this.setState({
+      currentScore: 0,
+      topScore: this.state.topScore,
+      rightWrong: "Duplicated! Reset!",
+      clickedAvatar: [],
+    });
+    this.handleShuffle();
   };
 
   // shuffle image
-  makeShuffle = () => {
-    this.setState({ avatar: shuffle(avatar) });
+  handleShuffle = () => {
+    let shuffledAvatars = shuffleAvatars(avatar);
+    this.setState({ avatar: shuffledAvatars });
   };
 
   render() {
     return (
       <Wrapper>
-      <div className="container">
-        <div
-          className="alert alert-danger"
-          style={{ opacity: this.state.showAlert }}
-        >
-          You clicked this one already, please try again
-        </div>
-        <div
-          className="alert alert-success"
-          style={{ opacity: this.state.showSuccess }}
-        >
-          Excelsior! You haven't clicked any duplicates!
-        </div>
         <Scoreboard
-          title="Avatar: The Last Airbender Clicky Game"
-          score={this.state.score}
+          title="Clicky Game"
+          score={this.state.currentScore}
           topScore={this.state.topScore}
+          rightWrong={this.state.rightWrong}
         />
-        <div className="row">
-          {this.state.avatar.map((avatars) => (
-            <Card
-              key={avatars.id}
-              id={avatars.id}
-              title={avatars.title}
-              image={avatars.image}
-              clickedImage={this.clickedImage}
-            />
-          ))}
-        </div>
-      </div>
+
+        <Title>
+          Click on an image to earn points. Don't click on an image more than
+          once or you will lose!
+        </Title>
+
+        <Container>
+          <Row>
+            {this.state.avatar.map((avatars => (
+              <Column size="md-3 sm-6">
+                <Card
+                  key={avatars.id}
+                  handleClick={this.handleClick}
+                  handleIncrement={this.handleIncrement}
+                  handleReset={this.handleReset}
+                  handleShuffle={this.handleShuffle}
+                  id={avatars.id}
+                  image={avatars.image}
+                />
+              </Column>
+            )))}
+          </Row>
+        </Container>
       </Wrapper>
     );
   }

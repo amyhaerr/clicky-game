@@ -1,40 +1,35 @@
-h4, h5 {
-    background-color: #ffffff;
-    display: inline;
-    cursor: default;
+nav {
+    width: 100%;
+    font-size: 3rem;
+    color: black;
+    margin-bottom: 50px;
+    background-color: bisque;
+    height: auto;
 }
 
-h5 {
-    font-size: 1.5em;
+a {
+    color: darkred;
 }
 
-
-h5:hover {
-    color: #ffffff;
-    background-color: red;
-    display: inline;
+a:hover {
+    color: darkblue;
+    text-decoration: none;
 }
 
-.scoreB {
-    margin-bottom: 10px;
+nav li {
+    display: inline-block;
+    padding: 26px 0;
+    width: 25%;
+    text-align: center;
 }
 
-.col-left {
-    text-align: left;
+ul {
+    display: flex;
+    align-items: center;
 }
 
-.col-right {
-    text-align: right;
-    padding-top: 20px;
-    padding-right: 40px;
+@media only screen and (max-width: 750px) {
+    #cur-sco, #top-sco {
+        font-size: 2rem;
+    }
 }
-
-/* #root {
-    background-image: url("/clicky-game/public/assets/Images/avatar.jpg");
-    background-color: #dddddd;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-   
-  } */
