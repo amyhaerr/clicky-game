@@ -16,8 +16,10 @@ This is a memorization and click game. The object of the game is to click on onl
 - React
 - JavaScript
 - Node Dependencies
-- 
-## Screenshots:
+- JSX
+- Bootstrap
+- CSS
+
 
 
 
