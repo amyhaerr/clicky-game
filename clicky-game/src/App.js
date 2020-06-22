@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import avatar from "./cards.json";
 import Scoreboard from "./components/Scoreboard";
 import Card from "./components/Card";
+import Wrapper from "./components/Wrapper";
 
 // shuffle upon click
 function shuffle(array) {
-  for (let i = array.length -1; i > 0; i--) {
+  for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
@@ -19,16 +20,16 @@ class App extends Component {
     topScore: 0,
     showAlert: 0,
     showSuccess: 0,
-    clickedAvatar: []
+    clickedAvatar: [],
   };
 
-  clickedImage = id => {
+  clickedImage = (id) => {
     // assign empty state array to let it be updated
     let clickedAvatar = this.state.clickedAvatar;
     let score = this.state.score;
     let topScore = this.state.topScore;
-    this.setState ({
-      showAlert: 0
+    this.setState({
+      showAlert: 0,
     });
 
     // if image is clicked, id indexed avatar
@@ -38,68 +39,74 @@ class App extends Component {
       console.log(clickedAvatar);
       this.handleIncrement();
       this.makeShuffle();
-      
-    }else if (this.state.score === 8) {
+    } else if (this.state.score === 8) {
       this.setState({
         showSuccess: 1,
         score: 0,
-        clickedAvatar: []
+        clickedAvatar: [],
       });
     } else {
       // alert player loss
       this.setState({
         score: 0,
-        clickedAvatar: []
+        clickedAvatar: [],
       });
       console.log("duplicate");
       this.setState({
-        showAlert: 1
+        showAlert: 1,
       });
     }
 
     if (score > topScore) {
-      this.setState ({
-        topScore: score
+      this.setState({
+        topScore: score,
       });
     }
   };
 
   handleIncrement = () => {
-    this.setState ({ score: this.state.score + 1});
+    this.setState({ score: this.state.score + 1 });
   };
 
   // shuffle image
   makeShuffle = () => {
-    this.setState ({ avatar: shuffle(avatar) });  
+    this.setState({ avatar: shuffle(avatar) });
   };
 
-  render () {
+  render() {
     return (
+      <Wrapper>
       <div className="container">
-        <div 
-        className="alert alert-success"
-        style={{ opacity: this.state.showAlert}}>
+        <div
+          className="alert alert-danger"
+          style={{ opacity: this.state.showAlert }}
+        >
           You clicked this one already, please try again
-          </div>
-      <div className="alert alert-primary"
-      style={{ opacity: this.state.showSuccess }}>
-        Excelsior! You haven't clicked any duplicates!
         </div>
-      <Scoreboard 
-       title="Avatar: The Last Airbender Clicky Game"
-       score= {this.state.score}
-       topScore= {this.state.topScore}/>
-      <div className="row">
-        {this.state.avatar.map(avatars => (
-          <Card
-          key= {avatars.id}
-          id= {avatars.id}
-          title= {avatars.title}
-          image= {avatars.image}
-          clickedImage= {this.clickedImage} />
-        ))}
+        <div
+          className="alert alert-success"
+          style={{ opacity: this.state.showSuccess }}
+        >
+          Excelsior! You haven't clicked any duplicates!
         </div>
+        <Scoreboard
+          title="Avatar: The Last Airbender Clicky Game"
+          score={this.state.score}
+          topScore={this.state.topScore}
+        />
+        <div className="row">
+          {this.state.avatar.map((avatars) => (
+            <Card
+              key={avatars.id}
+              id={avatars.id}
+              title={avatars.title}
+              image={avatars.image}
+              clickedImage={this.clickedImage}
+            />
+          ))}
         </div>
+      </div>
+      </Wrapper>
     );
   }
 }
