@@ -21,7 +21,7 @@ This is a memorization and click game. The object of the game is to click on onl
 - CSS
 
 ## Screenshot:
-<img src="clicky-game/public/assets/screenshots/clickygame.png">
+<img src="public/assets/screenshots/clickygame.png">
 
 
 
