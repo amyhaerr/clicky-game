@@ -37,5 +37,26 @@
         "id": 8,
         "image": "/assets/images/zuko.jpg",
         "title": "Zuko"
+    },
+    {
+        "id": 9,
+        "image": "/assets/images/appa2.jpg",
+        "title": "Appa"
+    },
+    {
+        "id": 10,
+        "image": "/assets/images/group2.jpg",
+        "title": "Group"
+    },
+    {
+        "id": 11,
+        "image": "/assets/images/group3.jpg",
+        "title": "Group"
+    },
+    {
+        "id": 12,
+        "image": "/assets/images/momo.jpg",
+        "title": "momo"
     }
+
 ]
