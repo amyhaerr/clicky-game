@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import avatar from "./cards.json";
+import {cards} from "./cards";
 import Scoreboard from "./components/Scoreboard";
-import Card from "./components/Card";
+import Card from "./components/Card/Card";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
 import Container from "./Container";
@@ -20,7 +20,7 @@ function shuffleAvatars (array) {
 
 class App extends Component {
   state = {
-    avatar,
+    cards,
     currentScore: 0,
     topScore: 0,
     rightWrong: "Click an image to start",
@@ -63,8 +63,8 @@ class App extends Component {
 
   // shuffle image
   handleShuffle = () => {
-    let shuffledAvatars = shuffleAvatars(avatar);
-    this.setState({ avatar: shuffledAvatars });
+    let shuffledAvatars = shuffleAvatars(cards);
+    this.setState({ cards: shuffledAvatars });
   };
 
   render() {
@@ -84,8 +84,8 @@ class App extends Component {
 
         <Container>
           <Row>
-            {this.state.avatar.map (avatars => (
-              <Column size="md-3 sm-6">
+            {this.state.cards.map (avatars => (
+              <Column size="md-3 sm-6" key={avatars.id}>
                 <Card
                   key={avatars.id}
                   handleClick={this.handleClick}
