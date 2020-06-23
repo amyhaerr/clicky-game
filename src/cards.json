@@ -1,61 +1,61 @@
 [{
         "id": 1,
-        "image": "/assets/images/aang.jpg",
+        "image": "/public/images/aang.jpg",
         "title": "Aang"
     },
     {
         "id": 2,
-        "image": "/assets/images/aang2.jpg",
+        "image": "/public/images/aang2.jpg",
         "title": "Avatar"
     },
     {
         "id": 3,
-        "image": "/assets/images/appa.jpg",
+        "image": "/public/images/appa.jpg",
         "title": "Appa"
     },
     {
         "id": 4,
-        "image": "/assets/images/irroh.jpg",
+        "image": "/public/images/irroh.jpg",
         "title": "Irroh"
     },
     {
         "id": 5,
-        "image": "/assets/images/katara.jpg",
+        "image": "/public/images/katara.jpg",
         "title": "Katara"
     },
     {
         "id": 6,
-        "image": "/assets/images/katara2.jpg",
+        "image": "/public/images/katara2.jpg",
         "title": "Katara and Sokka"
     },
     {
         "id": 7,
-        "image": "/assets/images/toph.jpg",
+        "image": "/public/images/toph.jpg",
         "title": "Toph"
     },
     {
         "id": 8,
-        "image": "/assets/images/zuko.jpg",
+        "image": "/public/images/zuko.jpg",
         "title": "Zuko"
     },
     {
         "id": 9,
-        "image": "/assets/images/appa2.jpg",
+        "image": "/public/images/appa2.jpg",
         "title": "Appa"
     },
     {
         "id": 10,
-        "image": "/assets/images/group2.jpg",
+        "image": "/public/images/group2.jpg",
         "title": "Group"
     },
     {
         "id": 11,
-        "image": "/assets/images/group3.jpg",
+        "image": "/public/images/group3.jpg",
         "title": "Group"
     },
     {
         "id": 12,
-        "image": "/assets/images/momo.jpg",
+        "image": "/public/images/momo.jpg",
         "title": "momo"
     }
 
